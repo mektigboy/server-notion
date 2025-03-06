@@ -1,26 +1,27 @@
 {
-  "name": "notion",
-  "version": "0.1.0",
-  "description": "Model Context Protocol Notion server",
-  "private": true,
+  "name": "server-notion",
+  "version": "0.1.1",
+  "description": "MCP server for Notion",
+  "license": "MIT",
   "type": "module",
   "bin": {
-    "notion": "./build/index.js"
+    "mcp-notion-server": "dist/index.js"
   },
   "files": [
-    "build"
+    "dist"
   ],
   "scripts": {
-    "build": "tsc && node -e \"require('fs').chmodSync('build/index.js', '755')\"",
+    "build": "tsc && shx chmod +x dist/*.js",
     "prepare": "npm run build",
     "watch": "tsc --watch",
-    "inspector": "npx @modelcontextprotocol/inspector build/index.js"
+    "inspector": "npx @modelcontextprotocol/inspector dist/index.js"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "1.6.1"
   },
   "devDependencies": {
     "@types/node": "22.13.9",
+    "shx": "^0.3.4",
     "typescript": "^5.8.2"
   }
 }
